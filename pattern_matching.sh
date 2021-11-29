@@ -10,3 +10,6 @@
 # Step 3) To print our output in the specified output format, orgnaize desired fields with specified separators and redirect output into a new text file.
 
 grep -oP '(error\scode\s\d+)\D+(server\s\d+)' ./example_server_log.txt | awk '{print $7 " "$8": "$1,$2,$3}' > ./output.txt
+
+# Alternative method using just awk
+# awk '/error\scode/ {print $13,$14": "$7,$8,$9}' example_server_log.txt > ./output.txt
